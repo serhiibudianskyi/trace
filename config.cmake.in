@@ -1,0 +1,3 @@
+set(trace_DIR "@INSTALL_DIR@")
+set(trace_LIB_DIR "@INSTALL_LIB_DIR@")
+set(trace_INCLUDE_DIR "@INSTALL_INCLUDE_DIR@")
