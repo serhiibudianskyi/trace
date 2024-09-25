@@ -1,19 +1,8 @@
 #include "TRC.h"
 
-class A
-{
-public:
-    A()
-    {
-        TRC::Trace(TRC::Type::INFO, "%s", __PRETTY_FUNCTION__);
-    }
-};
-
 int main(int argc, char *argv[])
 {
     TRC::Trace::setTraceFile("");
-
-    A a;
     
     for (std::size_t i = 0; i < 5; ++i)
     {
