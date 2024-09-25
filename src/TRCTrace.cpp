@@ -43,7 +43,12 @@ TRC::Trace::~Trace()
 void TRC::Trace::print() const
 {
     std::ostringstream oss;
-    oss << std::string(tabs_ - 1, '\t') << "[" << TRC::toString(type_) << " - " << getCurrentDateTime() << "]: " << buffer_;
+    if (tabs_)
+    {
+        oss << std::string(tabs_ - 1, '\t');
+    }
+    oss << "[" << TRC::toString(type_) << " - " << getCurrentDateTime() << "]: ";
+    oss << buffer_;
 
     std::string text = oss.str();
     

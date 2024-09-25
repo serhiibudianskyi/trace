@@ -1,6 +1,9 @@
 #pragma once
 
+#include <ctime>
 #include <vector>
+#include <iomanip>
+#include <cstdarg>
 #include <sstream>
 
 #include "TRCType.h"

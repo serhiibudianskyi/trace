@@ -41,7 +41,7 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${INSTALL_INC
 install(FILES ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake DESTINATION ${INSTALL_DIR})
 
 # Testing
-option(BUILD_TEST "Build test" On)
+option(BUILD_TEST "Build test" Off)
 if(BUILD_TEST)
     add_subdirectory(test)
 endif()
