@@ -35,8 +35,8 @@ else()
 endif()
 
 # Target dependencies
-include_directories(${INCLUDES})
-link_libraries(${LIBLARIES})
+target_include_directories(${PROJECT_NAME} PRIVATE ${INCLUDES})
+target_link_libraries(${PROJECT_NAME} PRIVATE ${LIBLARIES})
 
 # Installation
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/ DESTINATION ${INSTALL_INCLUDE_DIR})
@@ -47,7 +47,8 @@ option("Build test" Off)
 if(BUILD_TEST)
     enable_testing()
 
-    link_libraries(${PROJECT_NAME})
+    include_directories(${INCLUDES})
+    link_libraries(${PROJECT_NAME} ${LIBLARIES})
 
     add_executable(File test/file.cpp)
     add_test(NAME FileTest COMMAND File)
