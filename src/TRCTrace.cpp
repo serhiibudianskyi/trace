@@ -56,9 +56,14 @@ void TRC::Trace::print() const
     file_.write(text);
 }
 
-void TRC::Trace::setTraceFile(const std::string &name)
+void TRC::Trace::setTraceFileName(const std::string &name)
 {
     file_.setName(name);
+}
+
+std::string TRC::Trace::getTraceFileName()
+{
+    return file_.getName();
 }
 
 std::string TRC::Trace::getCurrentDateTime() const

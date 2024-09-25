@@ -1,5 +1,7 @@
+# CMake
 cmake_minimum_required(VERSION 3.14)
 
+# Project
 project(trace)
 
 # Common variables
@@ -47,8 +49,11 @@ if(BUILD_TEST)
 
     link_libraries(${PROJECT_NAME})
 
-    add_executable(Basic test/basic.cpp)
-    add_test(NAME BasicTest COMMAND Basic)
+    add_executable(File test/file.cpp)
+    add_test(NAME FileTest COMMAND File)
+
+    add_executable(Type test/type.cpp)
+    add_test(NAME TypeTest COMMAND Type)
 
     add_executable(Object test/object.cpp)
     add_test(NAME ObjectTest COMMAND Object)

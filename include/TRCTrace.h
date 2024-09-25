@@ -20,7 +20,8 @@ namespace TRC
 
         virtual void print() const;
 
-        static void setTraceFile(const std::string &name);
+        static void setTraceFileName(const std::string &name);
+        static std::string getTraceFileName();
 
         Trace(Trace &&) = delete;
         Trace(const Trace &) = delete;

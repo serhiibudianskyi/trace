@@ -9,6 +9,11 @@ void TRC::File::setName(const std::string &name)
     name_ = name;
 }
 
+std::string TRC::File::getName() const
+{
+    return name_;
+}
+
 void TRC::File::write(const std::string &text)
 {
     if (!open())

@@ -1,4 +1,4 @@
-#include "TRC.h"
+#include "common.hpp"
 
 class Object
 {
@@ -16,7 +16,10 @@ public:
 
 int main(int argc, char *argv[])
 {
+    std::string fileName = "file.txt";
+    TRC::Trace::setTraceFileName(fileName);
+
     Object object;
 
-    return 0;
+    return !(Common::checkFileExists(fileName));
 }

@@ -11,6 +11,7 @@ namespace TRC
         ~File() = default;
 
         void setName(const std::string &name);
+        std::string getName() const;
 
         void write(const std::string &text);
 
