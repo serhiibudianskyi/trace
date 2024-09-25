@@ -6,26 +6,35 @@
 
 namespace Common
 {
-    bool checkFileExists(const std::string &fileName)
+    bool checkFileExists(const std::string &name)
     {
-        return std::filesystem::exists(fileName);
+        return std::filesystem::exists(name);
     }
 
-    bool checkFileContent(const std::string &fileName, const std::string &expectedLine)
+    bool checkFileContent(const std::string &name, const std::vector<std::string> &texts)
     {
-        std::ifstream file(fileName);
+        std::ifstream file(name);
         if (!file.is_open())
         {
-            std::cerr << "Could not open file: " << fileName << std::endl;
             return false;
         }
 
+        bool found = true;
         std::string line;
-        if (std::getline(file, line))
+        
+        while (std::getline(file, line) && found)
         {
-            return line == expectedLine;
+            found = false;
+            for (const auto &text : texts)
+            {
+                if (std::string::npos != line.find(text))
+                {
+                    found = true;
+                    break;
+                }
+            }
         }
 
-        return false;
+        return found;
     }
 };

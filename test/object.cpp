@@ -21,5 +21,5 @@ int main(int argc, char *argv[])
 
     Object object;
 
-    return !(Common::checkFileExists(fileName));
+    return !Common::checkFileExists(fileName);
 }

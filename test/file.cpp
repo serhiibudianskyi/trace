@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
     file.write(secondFileLine);
 
     bool filesExist = Common::checkFileExists(firstFileName) && Common::checkFileExists(secondFileName);
-    bool filesContain = Common::checkFileContent(firstFileName, firstFileLine) && Common::checkFileContent(secondFileName, secondFileLine);
+    bool filesContain = Common::checkFileContent(firstFileName, {firstFileLine}) && Common::checkFileContent(secondFileName, {secondFileLine});
 
     return !(filesExist && filesContain);
 }
