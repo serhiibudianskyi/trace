@@ -12,7 +12,7 @@ set(LIBLARIES)
 # Config settings
 set(INSTALL_DIR ${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME})
 set(INSTALL_LIB_DIR ${INSTALL_DIR}/lib)
-set(INSTALL_INCLUDE_DIR ${INSTALL_DIR}/inlude)
+set(INSTALL_INCLUDE_DIR ${INSTALL_DIR}/include)
 configure_file(${CMAKE_CURRENT_SOURCE_DIR}/config.cmake.in
                ${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}Config.cmake
                @ONLY)
