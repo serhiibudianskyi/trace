@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
     file.setName(secondFileName);
     file.write(secondFileLine);
 
-    bool filesExist = Common::checkFileExists(firstFileName) && Common::checkFileExists(secondFileName);
-    bool filesContain = Common::checkFileContent(firstFileName, {firstFileLine}) && Common::checkFileContent(secondFileName, {secondFileLine});
+    bool filesExistWithContent = Common::checkFileExistsWithContent(firstFileName, {firstFileLine}) && Common::checkFileExistsWithContent(secondFileName, {secondFileLine});
+    bool filesDeleted = Common::deleteFile(firstFileName) && Common::deleteFile(secondFileName);
 
-    return !(filesExist && filesContain);
+    return !(filesExistWithContent && filesDeleted);
 }

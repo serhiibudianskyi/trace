@@ -12,8 +12,8 @@ int main(int argc, char *argv[])
         TRC::Trace error(TRC::Type::ERROR, "Error %d", i);
     }
 
-    bool fileExists = Common::checkFileExists(defaultFileName);
-    bool fileContains = Common::checkFileContent(defaultFileName, {TRC::toString(TRC::Type::BLOCK), TRC::toString(TRC::Type::INFO), TRC::toString(TRC::Type::WARRNING), TRC::toString(TRC::Type::ERROR)});
+    bool fileExistsWithContent = Common::checkFileExistsWithContent(defaultFileName, {TRC::toString(TRC::Type::BLOCK), TRC::toString(TRC::Type::INFO), TRC::toString(TRC::Type::WARRNING), TRC::toString(TRC::Type::ERROR)});
+    bool fileDeleted = Common::deleteFile(defaultFileName);
 
-    return !(fileExists && fileContains);
+    return !(fileExistsWithContent && fileDeleted);
 }
