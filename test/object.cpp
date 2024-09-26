@@ -19,7 +19,10 @@ int main(int argc, char *argv[])
     std::string fileName = "file.txt";
     TRC::Trace::setTraceFileName(fileName);
 
-    Object object;
+    {
+        Object object;
+        // Wait ~Object before removing trace file.
+    }
 
     return !(Common::checkFileExists(fileName) && Common::deleteFile(fileName));
 }
