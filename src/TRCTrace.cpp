@@ -40,6 +40,16 @@ TRC::Trace::~Trace()
     }
 }
 
+void TRC::Trace::setTraceFileName(const std::string &name)
+{
+    file_.setName(name);
+}
+
+std::string TRC::Trace::getTraceFileName()
+{
+    return file_.getName();
+}
+
 void TRC::Trace::print() const
 {
     std::ostringstream oss;
@@ -54,16 +64,6 @@ void TRC::Trace::print() const
     
     std::cout << text << std::endl;
     file_.write(text);
-}
-
-void TRC::Trace::setTraceFileName(const std::string &name)
-{
-    file_.setName(name);
-}
-
-std::string TRC::Trace::getTraceFileName()
-{
-    return file_.getName();
 }
 
 std::string TRC::Trace::getCurrentDateTime() const

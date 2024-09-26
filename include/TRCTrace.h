@@ -23,8 +23,6 @@ namespace TRC
         explicit Trace(const Type &type, const char *format, ...);
         ~Trace();
 
-        void print() const;
-
         static void setTraceFileName(const std::string &name);
         static std::string getTraceFileName();
 
@@ -34,6 +32,8 @@ namespace TRC
         Trace &operator=(const Trace &) = delete;
 
     protected:
+        void print() const;
+
         std::string getCurrentDateTime() const;
 
     private:
