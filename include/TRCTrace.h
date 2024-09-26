@@ -11,14 +11,19 @@
 
 namespace TRC
 {
-    class Trace
+    constexpr std::size_t TRACE_FILE_SIZE = 1024;
+    constexpr const char *TRACE_FILE_NAME = "trace.txt";
+    constexpr const char *TRACE_DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S";
+
+    class Trace final
     {
         friend class File;
+
     public:
-        explicit Trace(Type type, const char *format, ...);
+        explicit Trace(const Type &type, const char *format, ...);
         ~Trace();
 
-        virtual void print() const;
+        void print() const;
 
         static void setTraceFileName(const std::string &name);
         static std::string getTraceFileName();
@@ -36,7 +41,6 @@ namespace TRC
         std::string buffer_;
 
         static File file_;
-
         static std::size_t tabs_;
     };
 };

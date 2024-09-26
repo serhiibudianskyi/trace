@@ -1,14 +1,14 @@
 #include "TRCTrace.h"
 
-TRC::File TRC::Trace::file_("trace.txt");
+TRC::File TRC::Trace::file_(TRC::TRACE_FILE_NAME);
 std::size_t TRC::Trace::tabs_ = 0;
 
-TRC::Trace::Trace(TRC::Type type, const char *format, ...) : type_(type)
+TRC::Trace::Trace(const TRC::Type &type, const char *format, ...) : type_(type)
 {
     va_list args;
     va_start(args, format);
 
-    std::size_t size = 1024;
+    std::size_t size = TRC::TRACE_FILE_SIZE;
     std::vector<char> buffer(size);
 
     int needed = vsnprintf(buffer.data(), size, format, args);
@@ -72,7 +72,7 @@ std::string TRC::Trace::getCurrentDateTime() const
     std::tm tm = *std::localtime(&t);
 
     std::ostringstream oss;
-    oss << std::put_time(&tm, "%Y-%m-%d %H:%M:%S");
+    oss << std::put_time(&tm, TRC::TRACE_DATETIME_FORMAT);
 
     return oss.str();
 }

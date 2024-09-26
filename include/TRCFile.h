@@ -4,7 +4,7 @@
 
 namespace TRC
 {
-    class File
+    class File final
     {
     public:
         explicit File(const std::string &name);
